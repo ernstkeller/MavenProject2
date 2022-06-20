@@ -1,5 +1,6 @@
 package lesson6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,7 +38,7 @@ public class MainPage extends BaseCharacteristics {
     @FindBy(xpath = "//div[@class='Search-module__wrapper']/button[@type='submit']")
     private WebElement searchButton;
 
-
+    @Step ("Ввести логин и пароль зарегистрированного пользователя")
     public MainPage login(String email, String password) {
         logInButton.click();
         emailButton.click();
@@ -49,6 +50,7 @@ public class MainPage extends BaseCharacteristics {
         return new MainPage(driver);
     }
 
+    @Step ("Ввести поисковой запрос в строку поиска")
     public MainPage searchBook(String searchRequest) {
         searchField.sendKeys(searchRequest);
         searchButton.click();

@@ -1,5 +1,6 @@
 package lesson6;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ public class SignedInUserPage extends BaseCharacteristics{
     @FindBy(xpath = "//span/div/div/div/div[@class='Avatar-module__topContent']")
     private WebElement profileLink;
 
+    @Step("Проверить успешный вход в четную запись")
     public void checkSuccessLogIn(String username){
         webDriverWait.until(ExpectedConditions.visibilityOf(profileLink));
         Assertions.assertEquals(username, profileLink.getText());
